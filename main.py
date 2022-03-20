@@ -36,5 +36,3 @@ updater.dispatcher.add_handler(CommandHandler('cur15mins', get_cur_15min))
 if __name__ == '__main__':
     updater.start_polling()
     updater.idle()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
