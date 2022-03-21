@@ -30,7 +30,7 @@ def get_usd_kgs_last_15mins() -> str:
     buy_data = requests.get(
         "https://valuta.kg/api/rates.json?currency=usd"
     ).json()
-    if not buy_data["error"]:
+    if "error" not in buy_data:
         buy_data = buy_data["data"]["buy"]
         buy_data = pd.DataFrame(data=buy_data, columns=["date", "buy_value"])
         buy_data["date"] = buy_data["date"].apply(convert_unix_to_normal)

@@ -2,11 +2,18 @@
 
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler, Updater
+import logging
 
 from request_rate.daily_rates import get_usd_kgs_1d, get_usd_kgs_last_15mins
 
-updater = Updater('5250151891:AAHVazpIZVQoROOeJwqk_WGyPYHd8DN-Gms')
 
+# Enable logging
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
+)
+logger = logging.getLogger(__name__)
+
+updater = Updater('5250151891:AAHVazpIZVQoROOeJwqk_WGyPYHd8DN-Gms')
 
 def get_cur_1d(update: Update, context: CallbackContext) -> None:
     """Send telegram message with value.
