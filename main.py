@@ -1,10 +1,10 @@
 """main file."""
 
 import logging
-import os
 
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler, Updater
+from config.config import TELEGRAM_BOT_TOKEN
 
 from request_rate.daily_rates import get_usd_kgs_1d, get_usd_kgs_last_15mins
 
@@ -14,7 +14,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-TOKEN = os.getenv("TOKEN")
+TOKEN = TELEGRAM_BOT_TOKEN
 updater = Updater(TOKEN)
 
 def get_cur_1d(update: Update, context: CallbackContext) -> None:
