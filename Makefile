@@ -23,6 +23,7 @@ deploy: clean ## Copies any changed file to the server
 		main.py \
 		bot \
 		common \
+		request_rate \
 		config \
 		requirements \
 		scripts \
